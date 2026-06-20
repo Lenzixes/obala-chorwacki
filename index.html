@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1B3A4B">
+<title>Obala — chorwacki dla podróżnych</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ===================== EKRAN STARTOWY ===================== -->
+  <section id="screen-home" class="screen active">
+    <div class="horizon-bg" aria-hidden="true">
+      <div class="sun"></div>
+      <svg class="waterline" viewBox="0 0 400 60" preserveAspectRatio="none"><path d="M0,30 Q100,10 200,30 T400,30 V60 H0 Z" /></svg>
+    </div>
+
+    <header class="home-header">
+      <p class="eyebrow">Obala</p>
+      <h1>Twój kurs chorwackiego<br>przed wyjazdem nad Adriatyk</h1>
+      <p class="home-sub">Bez gier o sówki. Same zwroty, które naprawdę wypowiesz w restauracji, hotelu i na promie.</p>
+    </header>
+
+    <div class="streak-bar" id="streak-bar">
+      <div class="streak-pill">
+        <span class="streak-flame">🔥</span>
+        <span id="streak-count">0</span>
+        <span class="streak-label">dni z rzędu</span>
+      </div>
+      <div class="xp-pill">
+        <span id="xp-count">0</span>
+        <span class="xp-label">XP</span>
+      </div>
+    </div>
+
+    <nav class="route" id="route-list" aria-label="Porty kursu"></nav>
+
+    <footer class="home-footer">
+      <button class="install-btn" id="install-btn" hidden>Zainstaluj aplikację na telefonie</button>
+    </footer>
+  </section>
+
+  <!-- ===================== EKRAN PORTU (lista lekcji) ===================== -->
+  <section id="screen-port" class="screen">
+    <header class="port-header">
+      <button class="back-btn" data-back="home" aria-label="Wróć">←</button>
+      <div>
+        <p class="eyebrow" id="port-eyebrow">Port</p>
+        <h2 id="port-title">—</h2>
+      </div>
+    </header>
+    <div class="lesson-list" id="lesson-list"></div>
+    <button class="quiz-cta" id="quiz-cta">Sprawdź się — quiz portu →</button>
+  </section>
+
+  <!-- ===================== EKRAN LEKCJI ===================== -->
+  <section id="screen-lesson" class="screen">
+    <header class="lesson-header">
+      <button class="back-btn" data-back="port" aria-label="Wróć">←</button>
+      <div class="lesson-progress-track"><div class="lesson-progress-fill" id="lesson-progress-fill"></div></div>
+    </header>
+    <div class="lesson-body" id="lesson-body"></div>
+  </section>
+
+  <!-- ===================== EKRAN QUIZU ===================== -->
+  <section id="screen-quiz" class="screen">
+    <header class="lesson-header">
+      <button class="back-btn" data-back="port" aria-label="Wróć">←</button>
+      <div class="lesson-progress-track"><div class="lesson-progress-fill" id="quiz-progress-fill"></div></div>
+    </header>
+    <div class="quiz-body" id="quiz-body"></div>
+  </section>
+
+  <!-- ===================== EKRAN WYNIKU ===================== -->
+  <section id="screen-result" class="screen">
+    <div class="result-body" id="result-body"></div>
+  </section>
+
+</div>
+
+<script src="course-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
